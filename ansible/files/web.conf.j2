@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+     ServerAdmin contact@jubriladeyi.me
+     ServerName jubriladeyi.me
+     ServerAlias www.jubriladeyi.me
+
+     DocumentRoot /var/www/html/jubriladeyi/
+
+     <Directory /var/www/html/jubriladeyi>
+         Options Indexes FollowSymLinks
+         AllowOverride All
+         Require all granted
+     </Directory>
+
+     ErrorLog ${APACHE_LOG_DIR}/error.log
+     CustomLog ${APACHE_LOG_DIR}/access.log combined
+ </VirtualHost>
