@@ -1,5 +1,7 @@
 - name: ddeploy laravel app on remote server
   hosts: servers
+  vars_files:
+    - main.yml
   become: yes
   roles: 
     - packages-install
@@ -9,7 +11,7 @@
     - ufw-config
     - php-install
     - composer-install-setup
-    - clone_laravel-app-repo
+    - clone-laravel-app-repo
     - apache-config
     - migrate-database
     - SSL-install-setup
