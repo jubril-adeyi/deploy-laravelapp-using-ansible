@@ -1,0 +1,6 @@
+- name: Clone  github repository
+  git:
+    repo: https://github.com/f1amy/laravel-realworld-example-app.git
+    dest: /var/www/jubriladeyi
+    clone: yes
+    update: no

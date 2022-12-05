@@ -1,0 +1,21 @@
+---
+
+- name: UFW - Allow HTTP on port 80
+  ufw:
+    rule: allow
+    port: "80"
+    proto: tcp
+- name: UFW - Allow SSH on port 22
+  ufw:
+    rule: allow
+    port: "22"
+    proto: tcp
+- name: UFW -  Allow HTTPS
+  ufw:
+    rule: allow
+    port: "443"
+
+- name: UFW -  Allow  Mysql
+  ufw:
+    rule: allow
+    port: 3306

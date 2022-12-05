@@ -1,1 +1,4 @@
-
+- name: deploy laravel-app on remote slave server 
+  hosts: all 
+  become: true 
+  roles: 

@@ -1,0 +1,40 @@
+- name: Copy laravel project 
+  shell: sudo mv /var/www/jubriladeyi /var/www/html
+
+- name: Change permission
+  shell: sudo chgrp -R www-data /var/www/html/jubriladeyi
+
+- name: Change permission
+  shell: sudo chmod -R 775 /var/www/html/jubriladeyi/storage
+
+- name: Change permission
+  shell: sudo chmod -R ug+rwx  /var/www/html/jubriladeyi/bootstrap/cache
+
+- name: Copy .env file
+  copy:
+    src: /var/www/html/jubriladeyi/.env.example
+    dest: /var/www/html/jubriladeyi/.env
+    remote_src: true
+
+- name: Modify .env file
+  template: src=/home/ansible/play/playbook/.env  dest="/var/www/html/jubriladeyi/.env" owner=www-data mode=0644
+
+- name: Modify /routes/web.php file (Add frontend to laravel route)
+  template: src=/home/ansible/play/playbook/.web.php dest="/var/www/html/jubriladeyi/routes/web.php" owner=www-data  mode=0644
+
+- name: Copy .htacces file
+  copy:
+    src: /home/ansible/play/playbook/.htaccess
+    dest: /var/www/html/jubriladeyi/.htaccess
+
+- name: Remove default apache vhost config from sites-enabled
+  file: name=/etc/apache2/sites-enabled/000-default.conf state=absent
+
+- name: create apache vhosts for domain
+  template: src=/home/ansible/play/playbook/web.conf.j2 dest="/etc/apache2/sites-available/jubriladeyi.conf" owner=www-data mode=0644
+
+- name: Update a2ensite
+  command: a2ensite jubriladeyi
+
+- name: Update enable apache rewrite module
+  shell:  a2enmod rewrite

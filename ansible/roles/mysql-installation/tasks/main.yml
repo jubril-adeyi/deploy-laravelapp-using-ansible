@@ -1,0 +1,23 @@
+---
+
+- name: install mysql-server
+  apt: 
+    name: mysql-server
+    state: present
+- name: install mysql-client
+  apt: 
+    name: mysql-client
+    state: present
+- name: install python3-pymysql
+  apt: 
+    name: python3-pymysql
+    state: present
+- name: install python3-mysqldb
+  apt: 
+    name: python3-mysqldb
+    state: present
+- name: install libmysqlclient-dev
+  apt: 
+    name: libmysqlclient-dev
+    state: present
+

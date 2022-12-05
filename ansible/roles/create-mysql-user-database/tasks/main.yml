@@ -1,0 +1,24 @@
+
+- name: Creates new user; jubriladeyi
+  mysql_user:
+    login_host: 'localhost'
+    name: 'jubriladeyi'
+    password: 'jubriladeyi'
+    state: present
+    login_user: root
+    login_password: 'root'
+- name: Creates new database jubriladeyi
+  mysql_db:
+    name: 'jubriladeyi'
+    login_host: 'localhost'
+    state: present
+    login_user: root
+    login_password: 'root'
+- name: Grants user jubriladeyi ALL access/privileges to database;jubriladeyi
+  mysql_user:
+    name: 'jubriladeyi'
+    login_host: 'localhost'
+    state: present
+    login_user: root
+    login_password: 'root'
+    priv: 'jubriladeyi.*:ALL,GRANT'

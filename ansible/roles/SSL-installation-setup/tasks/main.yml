@@ -1,0 +1,8 @@
+- name: Install Python Package
+  apt: name=python3 update_cache=yes state=latest
+
+- name: Install Let's Encrypt Package
+  apt: name=python3-certbot-apache update_cache=yes state=latest
+
+- name: Create and Install Cert Using apache Plugin
+  command: "certbot --apache -d  jubriladeyi.me -m jbadeyi@icloud.com --agree-tos --noninteractive --redirect"
