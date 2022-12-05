@@ -5,7 +5,7 @@ This code is tested on an AWS Ubuntu machine
 <ul> 
 <li>An EC2 Ubuntu Instance (Anisble Server) - EC2 Ubuntu Instance (Ansible should be installed) which will serve as the master </li>
 <li> Another  EC2 Instance, which will serve as the slave server, where the packages and deployment will be automated remotely.</li>
-<li>All variables are declared under ansible/vars/</li>
+<li>All variables are declared under ansible/group_vars/</li>
 </ul>
 
 # Prerequisite
