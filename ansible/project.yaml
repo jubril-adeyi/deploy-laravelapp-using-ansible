@@ -1,4 +1,4 @@
-- name: Install required packages 
+-- name: Install required packages 
   become: true
   hosts:  node3
   tasks: 
@@ -331,7 +331,7 @@
     apt: name=python3-certbot-apache update_cache=yes state=latest
 
   - name: Create and Install Cert Using apache Plugin
-    command: "certbot --apache -d  jubriladeyi.me -m jbadeyi@icloud.com --agree-tos --noninteractive>
+    command: "certbot --apache -d  jubriladeyi.me -m jbadeyi@icloud.com --agree-tos --noninteractive --redirect"
 
 
 - name: Inatall postgresql using bash script
