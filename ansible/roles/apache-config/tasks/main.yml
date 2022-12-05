@@ -1,14 +1,14 @@
-#- name: Copy laravel project 
- # shell: sudo mv /var/www/{{ laravel_app }} /var/www/html
+- name: Copy laravel project 
+  shell: sudo mv /var/www/{{ laravel_app }} /var/www/html
 
-#- name: Change permission
- # shell: sudo chgrp -R www-data /var/www/html/{{ laravel_app }}
+- name: Change permission
+  shell: sudo chgrp -R www-data /var/www/html/{{ laravel_app }}
 
-#- name: Change permission
- # shell: sudo chmod -R 775 /var/www/html/{{ laravel_app }}/storage
+- name: Change permission
+  shell: sudo chmod -R 775 /var/www/html/{{ laravel_app }}/storage
 
-#- name: Change permission
- # shell: sudo chmod -R ug+rwx  /var/www/html/{{ laravel_app }}/bootstrap/cache
+- name: Change permission
+  shell: sudo chmod -R ug+rwx  /var/www/html/{{ laravel_app }}/bootstrap/cache
 
 - name: Copy .env file
   copy:
