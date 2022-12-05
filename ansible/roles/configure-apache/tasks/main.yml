@@ -1,31 +1,31 @@
 - name: Copy laravel project 
-  shell: sudo mv /var/www/jubriladeyi /var/www/html
+  shell: sudo mv /var/www/{{ laravel_app }} /var/www/html
 
 - name: Change permission
-  shell: sudo chgrp -R www-data /var/www/html/jubriladeyi
+  shell: sudo chgrp -R www-data /var/www/html/{{ laravel_app }}
 
 - name: Change permission
-  shell: sudo chmod -R 775 /var/www/html/jubriladeyi/storage
+  shell: sudo chmod -R 775 /var/www/html/{{ laravel_app }}/storage
 
 - name: Change permission
-  shell: sudo chmod -R ug+rwx  /var/www/html/jubriladeyi/bootstrap/cache
+  shell: sudo chmod -R ug+rwx  /var/www/html/{{ laravel_app }}/bootstrap/cache
 
 - name: Copy .env file
   copy:
-    src: /var/www/html/jubriladeyi/.env.example
-    dest: /var/www/html/jubriladeyi/.env
+    src: /var/www/html/{{ laravel_app }}/.env.example
+    dest: /var/www/html/{{ laravel_app }}/.env
     remote_src: true
 
 - name: Modify .env file
-  template: src=/home/ansible/play/playbook/.env  dest="/var/www/html/jubriladeyi/.env" owner=www-data mode=0644
+  template: src=/home/ansible/play/playbook/.env  dest="/var/www/html/{{ laravel_app }}/.env" owner=www-data mode=0644
 
 - name: Modify /routes/web.php file (Add frontend to laravel route)
-  template: src=/home/ansible/play/playbook/.web.php dest="/var/www/html/jubriladeyi/routes/web.php" owner=www-data  mode=0644
+  template: src=/home/ansible/play/playbook/.web.php dest="/var/www/html/{{ laravel_app }}/routes/web.php" owner=www-data  mode=0644
 
 - name: Copy .htacces file
   copy:
     src: /home/ansible/play/playbook/.htaccess
-    dest: /var/www/html/jubriladeyi/.htaccess
+    dest: /var/www/html/{{ laravel_app }}/.htaccess
 
 - name: Remove default apache vhost config from sites-enabled
   file: name=/etc/apache2/sites-enabled/000-default.conf state=absent

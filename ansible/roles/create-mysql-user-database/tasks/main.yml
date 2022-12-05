@@ -1,24 +1,24 @@
 
-- name: Creates new user; jubriladeyi
+- name: Creates new user
   mysql_user:
     login_host: 'localhost'
-    name: 'jubriladeyi'
-    password: 'jubriladeyi'
+    name: "{{ mysql_username }}"
+    password: "{{ mysql_user_password }}"
     state: present
     login_user: root
-    login_password: 'root'
-- name: Creates new database jubriladeyi
+    login_password: "{{ mysql_root_password }}
+- name: Creates new database
   mysql_db:
-    name: 'jubriladeyi'
+    name: "{{ mysql_database_name }}"
     login_host: 'localhost'
     state: present
     login_user: root
-    login_password: 'root'
-- name: Grants user jubriladeyi ALL access/privileges to database;jubriladeyi
-  mysql_user:
-    name: 'jubriladeyi'
+    login_password: "{{ mysql_username }}"
+- name: Grants user  ALL access/privileges to database
+  mysql_db:
+    name: "{{ mysql_database_name }}"
     login_host: 'localhost'
     state: present
     login_user: root
-    login_password: 'root'
-    priv: 'jubriladeyi.*:ALL,GRANT'
+    login_password: "{{ mysql_root_user }}"
+    priv: '{{ mysql_username }}.*:ALL,GRANT'

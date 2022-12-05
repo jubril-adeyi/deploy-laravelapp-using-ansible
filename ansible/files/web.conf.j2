@@ -1,11 +1,11 @@
 <VirtualHost *:80>
-     ServerAdmin contact@jubriladeyi.me
-     ServerName jubriladeyi.me
-     ServerAlias www.jubriladeyi.me
+     ServerAdmin {{ sever_admin }}
+     ServerName {{ server_name }}
+     ServerAlias {{ server_ alias }}
 
-     DocumentRoot /var/www/html/jubriladeyi/
+     DocumentRoot /var/www/html/{{ laravel_app }}/
 
-     <Directory /var/www/html/jubriladeyi>
+     <Directory /var/www/html/{{ laravel_app }}>
          Options Indexes FollowSymLinks
          AllowOverride All
          Require all granted
