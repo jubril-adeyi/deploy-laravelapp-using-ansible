@@ -13,6 +13,6 @@
     # - php-install
     # - composer-install-setup
     # - clone-laravel-app-repo
-    - apache-config
-    - migrate-database
-#    - SSL-install-setup
+    # - apache-config
+    # - migrate-database
+     - SSL-install-setup
