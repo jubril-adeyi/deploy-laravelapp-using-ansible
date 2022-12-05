@@ -5,4 +5,4 @@
   apt: name=python3-certbot-apache update_cache=yes state=latest
 
 - name: Create and Install Cert Using apache Plugin
-  command: "certbot --apache -d  jubriladeyi.me -m jbadeyi@icloud.com --agree-tos --noninteractive --redirect"
+  command: "certbot --apache -d  {{ servername }} -m {{ sever_email }} --agree-tos --noninteractive --redirect"

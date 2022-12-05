@@ -6,7 +6,7 @@
     password: "{{ mysql_user_password }}"
     state: present
     login_user: root
-    login_password: "{{ mysql_root_password }}
+    login_password: "{{ mysql_root_password }}"
 - name: Creates new database
   mysql_db:
     name: "{{ mysql_database_name }}"

@@ -1,19 +1,19 @@
 - name: Composer update
   shell: composer update --no-interaction
   args:
-    chdir: /var/www/html/jubriladeyi
+    chdir: /var/www/html/{{ laravel_app }}
 
 - name: Composer Install
   shell: composer update --no-interaction
   args:
-    chdir: /var/www/html/jubriladeyi
+    chdir: /var/www/html/{{ laravel_app }}
 
 - name: Composer create-project
   shell: composer create-project  --no-interaction
   args:
-    chdir: /var/www/html/jubriladeyi
+    chdir: /var/www/html/{{ laravel_app }}
 
 - name: Run the php -artisan migrate --seed command
   shell: php artisan migrate --seed
   args:
-    chdir: /var/www/html/jubriladeyi
+    chdir: /var/www/html/{{ laravel_app }}
