@@ -1,17 +1,18 @@
 - name: ddeploy laravel app on remote server
   hosts: servers
   vars_files:
-    - main.yml
+    - group_vars/servers/main.yml
+    - vault/vault_pass.yml
   become: yes
   roles: 
-    - packages-install
-    - mysql-install
-    - mysql-config
-    - mysql-user-database
-    - ufw-config
-    - php-install
-    - composer-install-setup
-    - clone-laravel-app-repo
-    - apache-config
-    - migrate-database
+#    - packages-install
+ #   - mysql-install
+  #  - mysql-config
+   # - mysql-user-database
+    #- ufw-config
+    #- php-install
+    #- composer-install-setup
+    #- clone-laravel-app-repo
+#    - apache-config
+ #   - migrate-database
     - SSL-install-setup

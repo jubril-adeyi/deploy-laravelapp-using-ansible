@@ -1,4 +1,8 @@
 laravel_app: laravel
 mysql_username: jubriladeyi
-servername: ipaddress***
+servername: 18.206.14.167
 sever_email: jbadeyi@icloud.com
+mysql_database_name: jubriladeyi
+sever_admin: jbadeyi@icloud.com
+server_name: 18.206.14.167
+server_alias: node1

@@ -13,7 +13,9 @@
   args:
     chdir: /var/www/html/{{ laravel_app }}
 
-- name: Run the php -artisan migrate --seed command
-  shell: php artisan migrate --seed
-  args:
-    chdir: /var/www/html/{{ laravel_app }}
+#- name: Run the php -artisan migrate --force --seed command
+ # shell: php artisan migrate --force --seed
+  #args:
+    #chdir: /var/www/html/{{ laravel_app }}
+- name: run wipe and seed commands 
+  command: php artisan db:wipe && php artisan db:seed
