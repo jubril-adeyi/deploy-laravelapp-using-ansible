@@ -1,4 +1,4 @@
-# Ansible roles to set up Apache, Php, composer, ufw, mysql and SSL to securely deploy the laravel application on a remote server
+## Using Ansible roles to set up Apache, Php, composer, ufw, mysql and SSL to securely deploy the laravel application on a remote server
 This code is tested on an AWS Ubuntu machine
 
 # Requirements
